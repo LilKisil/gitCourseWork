@@ -1,4 +1,4 @@
-public class ThreadApproximation {
+public class ThreadApproximation extends Thread{
     private double matrix[][];
     private int startIndex;
     private int endIndex;
