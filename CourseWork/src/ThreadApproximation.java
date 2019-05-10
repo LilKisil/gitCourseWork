@@ -20,8 +20,8 @@ public class ThreadApproximation extends Thread{
     public void run(){ //обрахунки, що здійснюватимуться в зазначеному потоці
         for(int i = id; i<id+1; i++ ){ //1 - 2
             for(int j = startIndex; j<endIndex; j++ ){
-               /*matrix[i][j] = Main.countWgridFunction(matrix[i - 1][j + 1],
-                        matrix[i - 1][j - 1], matrix[i - 1][j], stepT, stepX);*/
+               matrix[i][j] = Main.countWgridFunction(matrix[i - 1][j + 1],
+                        matrix[i - 1][j - 1], matrix[i - 1][j], stepT, stepX);
             }
         }
     }
