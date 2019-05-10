@@ -37,7 +37,7 @@ public class Main {
     public static final int amountOfSteps_X = 10;
     public static final int amountOfSteps_T = 100;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         double stepX = 0.1;
         double stepT = 0.0001;
 
@@ -141,6 +141,47 @@ public class Main {
         System.out.println("Время работы параллельно - " + ParallelTime);
         System.out.println("Время работы последовательно - " + ConsistentlyTime);
 
-        
+        FileWriter filePutTX = new FileWriter("MatrixPutTX.txt");
+        FileWriter foutConsistently = new FileWriter("MatrixFormulaConsistently.txt");
+        FileWriter foutParallel = new FileWriter("MatrixFormulaParallel.txt");
+        filePutTX.write( " MatrixPutTX = { ");
+        foutConsistently.write( " MatrixFormulaConsistently = { ");
+        foutParallel.write( " MatrixFormulaParallel = { ");
+        for (int i = 0; i < amountOfSteps_T; i++)
+        {
+            filePutTX.write(" { ");
+            foutConsistently.write(" { ");
+            foutParallel.write(" { ");
+            for (int j = 0; j < amountOfSteps_X; j++)
+            {
+                if (j < amountOfSteps_X - 1) {
+                    filePutTX.write((MatrixPutTX[i][j] + ", "));
+                    foutConsistently.write((MatrixFormulaConsistently[i][j] + ", "));
+                    foutParallel.write((MatrixFormulaParallel[i][j] + ", "));
+                }
+                else {
+                    filePutTX.write("" + MatrixPutTX[i][j]);
+                    foutConsistently.write("" + MatrixFormulaConsistently[i][j]);
+                    foutParallel.write("" + MatrixFormulaParallel[i][j]);
+                }
+            }
+            if (i < amountOfSteps_T - 1) {
+                filePutTX.write("}, ");
+                foutConsistently.write("}, ");
+                foutParallel.write("}, ");
+            }
+            else {
+                filePutTX.write(" } ");
+                foutConsistently.write(" } ");
+                foutParallel.write(" } ");
+            }
+        }
+        filePutTX.write(" };");
+        foutConsistently.write(" };");
+        foutParallel.write(" };");
+        filePutTX.close();
+        foutConsistently.close();
+        foutParallel.close();
+
     }
 }
