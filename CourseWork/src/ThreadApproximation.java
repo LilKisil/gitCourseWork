@@ -17,8 +17,8 @@ public class ThreadApproximation extends Thread{
     }
 
     @Override
-    public void run(){ //обрахунки, що здійснюватимуться в зазначеному потоці
-        for(int i = id; i<id+1; i++ ){ //1 - 2
+    public void run(){
+        for(int i = id; i<id+1; i++ ){
             for(int j = startIndex; j<endIndex; j++ ){
                matrix[i][j] = Main.countWgridFunction(matrix[i - 1][j + 1],
                         matrix[i - 1][j - 1], matrix[i - 1][j], stepT, stepX);

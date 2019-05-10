@@ -33,13 +33,13 @@ public class Main {
         return Wi + tau * (2 * ((leftWi - 2 * Wi + rightWi)/(hStep * hStep)) + 6 * Wi * ((rightWi - leftWi)/(2*hStep)));
     }
 
-    public static int NUNMBER_THREADS = 9;
-    public static final int amountOfSteps_X = 10;
-    public static final int amountOfSteps_T = 100;
+    public static int NUNMBER_THREADS = 3;
+    public static final int amountOfSteps_X = 30;
+    public static final int amountOfSteps_T = 900;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        double stepX = 0.1;
-        double stepT = 0.0001;
+        double stepX = 0.03;
+        double stepT = 0.0000012346;
 
         double[][]  MatrixPutTX = new double[amountOfSteps_T][amountOfSteps_X];
         double[][]  MatrixFormulaConsistently =  new double [amountOfSteps_T][amountOfSteps_X];
