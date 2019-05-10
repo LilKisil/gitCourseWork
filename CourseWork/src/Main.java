@@ -86,6 +86,22 @@ public class Main {
             }
         }
 
+        int iMax = 0, jMax = 0;
+        double maxInaccuracy = 0;
+        for (int i = 0; i < amountOfSteps_T; i++)
+        {
+            for (int j = 0; j < amountOfSteps_X; j++)
+            {
+                if (Math.abs(MatrixPutTX[i][j] - MatrixFormula[i][j]) > maxInaccuracy)
+                {
+                    iMax = i;
+                    jMax = j;
+                    maxInaccuracy = Math.abs(MatrixPutTX[i][j] - MatrixFormula[i][j]);
+                }
+            }
+        }
+        System.out.println("Абсолютна - " + maxInaccuracy + " та відносна похибки - " + maxInaccuracy / MatrixPutTX[iMax][jMax]);
+
 
     }
 }
